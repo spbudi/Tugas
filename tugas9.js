@@ -8,13 +8,13 @@ function spiral(param1) {
           arr[i][j] = (i * param1) + j
       }
     }
-
-  while (arr.length > 1) {
+  console.log(arr);
+  while (arr.length > 1) { // arr.length 5
       // kanan
-      list = list.concat(arr.splice(0, 1)[0]);
+      list = list.concat(arr.splice(0, 1)[0]); // [1 sampai 24]
       // bawah
-      for (let idx in arr) {
-          list.push(arr[idx].splice(-1)[0]);
+      for (let idx in arr) { // 
+          list.push(arr[idx].splice(-1)[0]); // ga ada yg dihapus [0 sampai 24]
       }
       // kiri
       list = list.concat(arr.splice(-1, 1)[0].reverse());
@@ -28,5 +28,5 @@ function spiral(param1) {
   console.log(list)
 }
 spiral(5)
-spiral(6)
-spiral(7)
+// spiral(6)
+// spiral(7)
