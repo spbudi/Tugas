@@ -2,7 +2,6 @@ const fs = require('fs');
 const readline = require('readline');
 
 const file = fs.readFileSync('data.json');
-// const file = fs.readFileSync('data.json');
 const data = JSON.parse(file);
 
 const rl = readline.createInterface({
@@ -15,31 +14,21 @@ let count = 0;
 console.log(
   'Selamat datang di permainan Tebak Kata, silakan isi dengan jawaban yang benar!\n'
 );
-console.log(`Pertanyaan: ${data[count].definition}`);
+console.log(`Pertanyaan: ${data[count].definition}`); // jokowi
 rl.prompt();
 
-rl.on('line', (input) => {
-  if (count < data.length - 1) {
-    if (input.toLocaleLowerCase() !== data[count].term) {
-      console.log('Wkwkwkw, Anda Kurang beruntung!');
-      rl.prompt();
-    } else {
-      count++;
-      console.log('Selamat Anda Benar!\n');
-      console.log(`pertanyaan ${data[count].definition}`);
-      rl.prompt();
+rl.on('line', input => {
+  if (input.toLowerCase() == data[count].term) {
+    count++;
+    if (count == data.length) {
+      console.log('Selamat Anda Benar\n');
+      console.log('Hore Anda Menang');
+      process.exit(0);
     }
-  // }
-  } else if (input.toLocaleLowerCase() !== data[count].term) {
-    console.log('Wkwkwkw, Anda kurang beruntung!');
-    rl.prompt();
+    console.log('Selamat Anda Benar!\n');
+    console.log(`Pertanyaan: ${data[count].definition}`); // 1945
   } else {
-    console.log('Selamat anda benar!\n');
-    console.log('Hore Anda Menang!');
-    process.exit(0);
+    console.log('Wkwkwkwk, Anda kurang beruntung');
   }
+  rl.prompt();
 });
-// }).on('close', () => {
-//   console.log('Terima Kasih');
-//   process.exit(0);
-// });
