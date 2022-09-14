@@ -1,4 +1,4 @@
-// const fs = require('fs');
+const fs = require('fs');
 const readline = require('readline');
 
 const file = fs.readFileSync('data.json');
@@ -10,10 +10,10 @@ const rl = readline.createInterface({
   prompt: 'Tebakan: ',
 });
 
-console.log(
-  'Selamat datang di permainan Tebak Kata, silakan isi dengan jawaban yang benar!\n'
-);
+console.log('Selamat datang di permainan Tebak Kata, silakan isi dengan jawaban yang benar!\n');
+
 let count = 0;
+
 console.log(`Pertanyaan: ${data[count].definition}`);
 rl.prompt();
 
