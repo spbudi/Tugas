@@ -10,7 +10,8 @@ create table mata_kuliah (id_matkul VARCHAR(4) PRIMARY KEY NOT NULL, nama_matkul
 -- create dosen
 create table dosen ( NIP VARCHAR(4) PRIMARY KEY NOT NULL, nama_dosen VARCHAR(100) NOT NULL);
 
-create table
+-- create laporan
+create table laporan (id_laporan VARCHAR(4) PRIMARY KEY NOT NULL, NIM VARCHAR(4) NOT NULL, id_matkul VARCHAR(4) NOT NULL, NIP VARCHAR(4) NOT NULL, id_jurusan VARCHAR(4), nilai VARCHAR(2), FOREIGN KEY(NIM) REFERENCES mahasiswa (NIM), FOREIGN KEY(id_matkul) REFERENCES mata_kuliah(id_matkul), FOREIGN KEY(id_jurusan) REFERENCES jurusan(id_jurusan), FOREIGN KEY(NIP) REFERENCES dosen(NIP));
 
 
 -- insert data to dosen
@@ -25,6 +26,9 @@ insert into mahasiswa values ('M001', 'Wahyu Candra', 'Ringin Anom rt 02 rw 04 K
 
 --insert into jurusan
 insert into jurusan values ('J001', 'Teknik Informatika'), ('J002', 'Sistem Informasi'), ('J003', 'Ilmu Komputer');
+
+-- insert into laporan
+insert into laporan values ('L001', 'M001', 'K001', 'D001', 'J001', 'B'), ('L002', 'M002', 'K002', 'D002', 'J002', 'B'), ('L003', 'M003', 'K003', 'D003', 'J003', 'A'), ('L004', 'M004', 'K004', 'D004', 'J004', 'C');
 
 
 
