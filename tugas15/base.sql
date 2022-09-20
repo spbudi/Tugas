@@ -90,6 +90,8 @@ SELECT nama, umur from mahasiswa ORDER BY umur ASC;
 -- 8
 SELECT * FROM laporan JOIN dosen ON dosen.NIP=laporan.NIP JOIN mahasiswa ON mahasiswa.NIM=laporan.NIM WHERE nilai LIKE 'D' OR nilai LIKE 'E';
 
+SELECT mahasiswa.nama, mahasiswa.NIM, mata_kuliah.nama_matkul, dosen.nama_dosen, dosen.NIP, laporan.nilai FROM mata_kuliah, mahasiswa, dosen, laporan WHERE UPPER(laporan.nilai)>'C' AND mahasiswa.NIM=laporan.nim AND laporan.id_matkul=mata_kuliah.id_matkul AND laporan.NIP=dosen.NIP;
+
 
 
 
