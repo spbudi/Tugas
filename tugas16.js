@@ -49,10 +49,10 @@ class CarFactory {
       for (let i = 0; i < CarFactory.acak(); i++) {
           this.cars.push(new Rush(tahun))
       }
+      console.log(`Pada tahun ${tahun} Toyota memproduksi mobil sebanyak ${this.cars.length} unit: `);
   }
 
   warranty(year) {
-      console.log(`Pada tahun ${year} Toyota memproduksi mobil sebanyak ${this.cars.length} unit: `);
       this.cars.forEach(content => {
           console.log(`
           Nama Mobil: ${content.type}
@@ -62,6 +62,7 @@ class CarFactory {
           Tahun Pembuatan: ${content.tahun}
           Garansi : ${content.garansi} Tahun
           Masa berlaku garansi: ${(year - content.tahun) > content.garansi ? 'Tidak berlaku' : 'Masih berlaku'}
+          
           ===================================
           `)
       })
@@ -70,5 +71,5 @@ class CarFactory {
 
 let pabrik = new CarFactory();
 
-pabrik.produksi(2022);
-pabrik.warranty(2022);
+pabrik.produksi(2025);
+pabrik.warranty(2028);
