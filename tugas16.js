@@ -61,8 +61,7 @@ class CarFactory {
           Ukuran Ban: ${content.ukuran}
           Tahun Pembuatan: ${content.tahun}
           Garansi : ${content.garansi} Tahun
-          Masa berlaku garansi: ${(year - content.tahun) > content.garansi ? 'Tidak berlaku' : 'Masih berlaku'}
-          
+          Masa berlaku garansi: ${(year - content.tahun) > content.garansi ? 'Tidak berlaku' : 'Masih berlaku'}     
           ===================================
           `)
       })
@@ -72,4 +71,4 @@ class CarFactory {
 let pabrik = new CarFactory();
 
 pabrik.produksi(2025);
-pabrik.warranty(2028);
+pabrik.warranty(2029);
